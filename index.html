@@ -58,16 +58,6 @@
 
     <li class="toctree-l2"><a href="#requirements">Requirements</a></li>
     
-        <ul>
-        
-            <li><a class="toctree-l3" href="#linux">Linux</a></li>
-        
-            <li><a class="toctree-l3" href="#macos">MacOS</a></li>
-        
-            <li><a class="toctree-l3" href="#windows">Windows</a></li>
-        
-        </ul>
-    
 
     <li class="toctree-l2"><a href="#installation">Installation</a></li>
     
@@ -140,32 +130,36 @@ application, but also it's perfect for doing researches in Jupyter interactive n
 In this quick start guide, we'll go through the main concepts and inspect one of the common use cases.</p>
 <h2 id="requirements">Requirements</h2>
 <p>First of all you'll probably need to install cryptographic libraries in your system.</p>
-<h4 id="linux">Linux</h4>
-<p>Use apt or your favourite package manager</p>
+<p><em>Linux</em></p>
+<p>Use apt or your favourite package manager:</p>
 <pre><code>$ sudo apt install libsodium-dev libsecp256k1-dev libgmp-dev
 </code></pre>
 
-<h4 id="macos">MacOS</h4>
-<p>Install homebrew (if not yet)</p>
-<pre><code>$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</code></pre>
-
-<p>Then the following libraries</p>
+<p><em>MacOS</em></p>
+<p>Use homebrew:</p>
 <pre><code>$ brew tap cuber/homebrew-libsecp256k1
 $ brew install libsodium libsecp256k1 gmp
 </code></pre>
 
-<h4 id="windows">Windows</h4>
+<p><em>Windows</em></p>
+<p>The recommended way is to use WSL and then follow the instructions for Linux,
+but if you feel lucky you can try to install natively:</p>
 <ol>
-<li>Download MinGW from <a href="https://sourceforge.net/projects/mingw/">https://sourceforge.net/projects/mingw/</a></li>
-<li>From "Basic Setup" choose <code>mingw-developer-toolkit</code> <code>mingw32-base</code> <code>mingw32-gcc-g++</code> <code>msys-base</code></li>
+<li>Install MinGW from <a href="https://osdn.net/projects/mingw/">https://osdn.net/projects/mingw/</a></li>
 <li>Make sure <code>C:\MinGW\bin</code> is added to your <code>PATH</code></li>
 <li>Download the latest libsodium-X.Y.Z-msvc.zip from <a href="https://download.libsodium.org/libsodium/releases/">https://download.libsodium.org/libsodium/releases/</a>.</li>
-<li>Extract the Win32/Release/v120/dynamic/libsodium.dll fromt the zip file</li>
+<li>Extract the Win64/Release/v143/dynamic/libsodium.dll from the zip file</li>
 <li>Copy libsodium.dll to C:\Windows\System32\libsodium.dll</li>
 </ol>
 <h2 id="installation">Installation</h2>
+<p>In console:</p>
 <pre><code>$ pip install pytezos
+</code></pre>
+
+<p>In Google Colab notebook:</p>
+<pre><code class="python">&gt;&gt;&gt; !apt apt install libsodium-dev libsecp256k1-dev libgmp-dev
+&gt;&gt;&gt; !pip install pytezos
+[RESTART RUNTIME]
 </code></pre>
 
 <p>That's it! You can open Python console or Jupyter notebook and get to the next step.</p>
@@ -627,5 +621,5 @@ In our case we just want to view data, so we can use <code>preapply</code> to se
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-08-18 14:54:26
+Build Date UTC : 2019-08-19 17:37:12
 -->
