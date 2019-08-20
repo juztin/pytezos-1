@@ -170,8 +170,8 @@ but if you feel lucky you can try to install natively:</p>
 &lt;pytezos.client.PyTezosClient object at 0x7f904cf339e8&gt;
 
 Properties
-.key -&gt; tz1grSQDByRpnVs7sPtaprNZRp531ZKz6Jmm
-.shell -&gt; https://tezos-dev.cryptonomic-infra.tech/ (alphanet)
+.key  # tz1grSQDByRpnVs7sPtaprNZRp531ZKz6Jmm
+.shell  # https://tezos-dev.cryptonomic-infra.tech/ (alphanet)
 
 Helpers
 .account()
@@ -210,7 +210,7 @@ so you can start to interact immediately, but it's highly recommended to use you
 Then configure the client (we can leave <code>shell</code> parameter empty, but we will set it explicitly for better understanding)</p>
 <pre><code class="python">&gt;&gt;&gt; pytezos = pytezos.using(
 ...     key='~/Downloads/tz1cnQZXoznhduu4MVWfJF6GSyP6mMHMbbWa.json',
-...     shell='https://rpc.tulip.tools/alphanet/')
+...     shell='alphanet')
 </code></pre>
 
 <p>Public available RPC providers are available at <code>pytezos.rpc</code>:</p>
@@ -243,8 +243,8 @@ and gas/storage limits.</p>
 &lt;pytezos.operation.group.OperationGroup object at 0x7f291b7074e0&gt;
 
 Properties
-.key -&gt; tz1cnQZXoznhduu4MVWfJF6GSyP6mMHMbbWa
-.shell -&gt; https://rpc.tulip.tools/alphanet/ (alphanet)
+.key  # tz1cnQZXoznhduu4MVWfJF6GSyP6mMHMbbWa
+.shell  # https://tezos-dev.cryptonomic-infra.tech/ (alphanet)
 
 Payload
 {'branch': 'BL5UtKR4ysFLwcK2ign1h2KoZLJY88zd1vzWUZPzto9iEJqUj1d',
@@ -326,8 +326,9 @@ Ok, let's sign and preapply operation to see what's going to happen:</p>
 <pre><code class="python">&gt;&gt;&gt; pytezos.shell.blocks[580244].operations['oo3TzPdNhtz5nmE9nL2yGLqwUzSfmb1vjTpu8wFkX5CTKLV67AE']
 &lt;pytezos.rpc.protocol.OperationQuery object at 0x7f70650925c0&gt;
 
-Path
-/chains/main/blocks/580244/operations/3/16
+Properties
+.path  # /chains/main/blocks/580244/operations/3/16 (cached)
+.node  # https://tezos-dev.cryptonomic-infra.tech/ (alphanet)
 
 ()
 The `m-th` operation in the `n-th` validation pass of the block.
@@ -477,9 +478,9 @@ and query balance for an account from the big map.</p>
 &lt;pytezos.michelson.interface.ContractEntrypoint object at 0x7f4f0cc76e48&gt;
 
 Properties
-.key -&gt; tz1cnQZXoznhduu4MVWfJF6GSyP6mMHMbbWa
-.shell -&gt; https://tezos-dev.cryptonomic-infra.tech/ (alphanet)
-.address -&gt; KT1HnvV5Z53naoh51jYvPF7w168nW8nfyx5v
+.key  # tz1cnQZXoznhduu4MVWfJF6GSyP6mMHMbbWa
+.shell  # https://tezos-dev.cryptonomic-infra.tech/ (alphanet)
+.address  # KT1HnvV5Z53naoh51jYvPF7w168nW8nfyx5v
 
 $kwargs:
     {
@@ -504,8 +505,8 @@ Using <a href="https://github.com/baking-bad/conseilpy">conseilpy</a> we can fin
 &lt;pytezos.michelson.interface.ContractCall object at 0x7f4f0cc980b8&gt;
 
 Properties
-.key -&gt; tz1cnQZXoznhduu4MVWfJF6GSyP6mMHMbbWa
-.shell -&gt; https://tezos-dev.cryptonomic-infra.tech/ (alphanet)
+.key  # tz1cnQZXoznhduu4MVWfJF6GSyP6mMHMbbWa
+.shell  # https://tezos-dev.cryptonomic-infra.tech/ (alphanet)
 
 Payload
 {'branch': 'BMDPbTmdsLnD1JBurPAqiYE45UDunYTBad2UWgCtg5bgyi2UFxu',
@@ -621,5 +622,5 @@ In our case we just want to view data, so we can use <code>preapply</code> to se
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-08-19 17:37:12
+Build Date UTC : 2019-08-20 10:20:32
 -->
