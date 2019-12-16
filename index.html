@@ -64,6 +64,14 @@
 
     <li class="toctree-l2"><a href="#set-key-and-rpc-node">Set key and RPC node</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#faucet-account">Faucet account</a></li>
+        
+            <li><a class="toctree-l3" href="#sandboxed-mode">Sandboxed mode</a></li>
+        
+        </ul>
+    
 
     <li class="toctree-l2"><a href="#activate-account">Activate account</a></li>
     
@@ -153,11 +161,11 @@ but if you feel lucky you can try to install natively:</p>
 </ol>
 <h2 id="installation">Installation</h2>
 <p>In console:</p>
-<pre><code>$ pip install pytezos
+<pre><code>$ pip install pytezos[crypto]
 </code></pre>
 
 <p>In Google Colab notebook:</p>
-<pre><code class="python">&gt;&gt;&gt; !apt apt install libsodium-dev libsecp256k1-dev libgmp-dev
+<pre><code class="python">&gt;&gt;&gt; !apt install libsodium-dev libsecp256k1-dev libgmp-dev
 &gt;&gt;&gt; !pip install pytezos
 [RESTART RUNTIME]
 </code></pre>
@@ -206,6 +214,7 @@ Change current rpc endpoint and account (private key)
 
 <p>Note, that by default <code>pytezos</code> is initialized with <code>alphanet</code> and a predefined private key for demo purpose,
 so you can start to interact immediately, but it's highly recommended to use your own key. Let's do that!</p>
+<h3 id="faucet-account">Faucet account</h3>
 <p>Go to the <a href="https://faucet.tzalpha.net/">https://faucet.tzalpha.net/</a> and download key file.
 Then configure the client (we can leave <code>shell</code> parameter empty, but we will set it explicitly for better understanding)</p>
 <pre><code class="python">&gt;&gt;&gt; pytezos = pytezos.using(
@@ -222,6 +231,27 @@ Networks
 .mainnet  # https://rpc.tulip.tools/mainnet/
 .alphanet  # https://rpc.tulip.tools/alphanet/
 .zeronet  # https://rpc.tulip.tools/zeronet/
+</code></pre>
+
+<h3 id="sandboxed-mode">Sandboxed mode</h3>
+<p>Accounts are pre-created in Sandboxed mode, this shows how to find the secret keys:</p>
+<pre><code>$ grep SECRET src/bin_client/tezos-init-sandboxed-client.sh
+export BOOTSTRAP1_SECRET=&quot;unencrypted:edsk3gUfUPyBSfrS9CCgmCiQsTCHGkviBDusMxDJstFtojtc1zcpsh&quot;
+export BOOTSTRAP2_SECRET=&quot;unencrypted:edsk39qAm1fiMjgmPkw1EgQYkMzkJezLNewd7PLNHTkr6w9XA2zdfo&quot;
+export BOOTSTRAP3_SECRET=&quot;unencrypted:edsk4ArLQgBTLWG5FJmnGnT689VKoqhXwmDPBuGx3z4cvwU9MmrPZZ&quot;
+export BOOTSTRAP4_SECRET=&quot;unencrypted:edsk2uqQB9AY4FvioK2YMdfmyMrer5R8mGFyuaLLFfSRo8EoyNdht3&quot;
+export BOOTSTRAP5_SECRET=&quot;unencrypted:edsk4QLrcijEffxV31gGdN2HU7UpyJjA8drFoNcmnB28n89YjPNRFm&quot;
+export ACTIVATOR_SECRET=&quot;unencrypted:edsk31vznjHSSpGExDMHYASz45VZqXN4DPxvsa4hAyY8dHM28cZzp6&quot;
+</code></pre>
+
+<p>Use one of these unencrypted private keys to connect to the sandbox:</p>
+<pre><code>&gt;&gt;&gt; from pytezos import pytezos
+&gt;&gt;&gt; pytezos.using(shell='http://localhost:18731', key='edsk3gUfUPyBSfrS9CCgmCiQsTCHGkviBDusMxDJstFtojtc1zcpsh')
+&lt;pytezos.client.PyTezosClient object at 0x7f2c2d78da10&gt;
+
+Properties
+.key  # tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx
+.shell  # http://localhost:18731 ()
 </code></pre>
 
 <h2 id="activate-account">Activate account</h2>
@@ -622,5 +652,5 @@ In our case we just want to view data, so we can use <code>preapply</code> to se
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-08-20 10:20:32
+Build Date UTC : 2019-12-16 18:00:23
 -->
